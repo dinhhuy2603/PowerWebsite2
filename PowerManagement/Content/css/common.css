@@ -1,0 +1,405 @@
+.section-content,
+.section-content p,
+.section-01,
+.section-02,
+.section-03,
+.section-04,
+.section-05,
+.section-06,
+.section-07,
+.section-08,
+.section-09,
+.box,
+.box-title,
+.box-cnt,
+.box-cnt span,
+.border-01,
+.border-02,
+.border-03 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.bg-card{
+    background: #1b2a47;
+}
+
+body {
+  background-color: #152036;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+main {
+  padding: 0.625rem 0;
+}
+
+.main-container .container {
+  width: 100%;
+  margin: 0 1rem;
+  padding: 1rem 0 1rem 1rem;
+  text-align: center;
+}
+
+.main-container .container:nth-child(2n) {
+  margin-right: 0;
+}
+.main-container .container .container_box {
+  display: inline-block;
+}
+
+section {
+  position: relative;
+  margin-bottom: 0.9375rem !important;
+}
+
+.section-01 .title {
+  position: absolute;
+  bottom: 2.1875rem;
+  left: 6.875rem;
+}
+
+.section-05 {
+  margin-bottom: 0.625rem;
+}
+
+.section-06 {
+  margin-bottom: 0.625rem;
+}
+
+.section-09 .title {
+  margin-left: 47.5rem;
+}
+
+.section-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.border-01 {
+  position: relative;
+  top: -1.25rem;
+  z-index: 1;
+  display: block;
+  width: 55rem;
+  height: 1px;
+  background-color: red;
+}
+
+.border-02 {
+  position: relative;
+  top: -2.5625rem;
+  left: 8.75rem;
+  z-index: 1;
+  display: block;
+  width: 38.4375rem;
+  height: 1px;
+  background-color: red;
+}
+
+.border-03 {
+  position: relative;
+  top: -1.5625rem;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 39.375rem;
+  height: 0.125rem;
+  background-color: red;
+}
+
+.border-04 {
+  position: absolute;
+  bottom: -0.3125rem;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 55.125rem;
+  height: 0.125rem;
+  background-color: red;
+}
+
+.arrow-01 {
+  position: absolute;
+  top: 3rem;
+  left: 4.25rem;
+  height: 14.875rem;
+  width: 0.125rem;
+  border-left: 0.125rem dashed red;
+}
+
+.arrow-01::after {
+  content: '';
+  position: absolute;
+  top: -0.125rem;
+  left: -0.6875rem;
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-bottom: 0.625rem solid red;
+  clear: both;
+}
+
+.arrow-02 {
+  position: absolute;
+  top: 2.8125rem;
+  left: 11.75rem;
+  height: 6.875rem;
+  width: 0.125rem;
+  border-left: 0.125rem solid red;
+}
+
+.arrow-02::after {
+  content: '';
+  position: absolute;
+  bottom: 0rem;
+  left: -0.6875rem;
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-top: 0.625rem solid red;
+  clear: both;
+}
+
+.arrow-03 {
+  position: absolute;
+  top: 2.1875rem;
+  left: 11.75rem;
+  height: 10.875rem;
+  width: 0.125rem;
+  border-left: 0.125rem solid red;
+}
+
+.arrow-03::after {
+  content: '';
+  position: absolute;
+  bottom: 0rem;
+  left: -0.6875rem;
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-top: 0.625rem solid red;
+  clear: both;
+}
+
+.arrow-06 {
+  position: absolute;
+  bottom: 0;
+  left: 55rem;
+  height: 31.125rem;
+  width: 0.125rem;
+  border-left: 0.125rem dashed red;
+}
+
+.arrow-06::after {
+  content: '';
+  position: absolute;
+  top: -0.125rem;
+  left: -0.6875rem;
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-bottom: 0.625rem solid red;
+  clear: both;
+}
+
+.arrow-05 {
+  position: absolute;
+  bottom: 0;
+  left: 47.1875rem;
+  height: 24.125rem;
+  width: 0.125rem;
+  border-left: 0.125rem dashed red;
+}
+
+.arrow-05::after {
+  content: '';
+  position: absolute;
+  top: -0.125rem;
+  left: -0.6875rem;
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-bottom: 0.625rem solid red;
+  clear: both;
+}
+
+.arrow-04 {
+  position: absolute;
+  bottom: 0;
+  left: 39.375rem;
+  height: 15.9375rem;
+  width: 0.125rem;
+  border-left: 0.125rem dashed red;
+}
+
+.arrow-04::after {
+  content: '';
+  position: absolute;
+  top: -0.125rem;
+  left: -0.6875rem;
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-bottom: 0.625rem solid red;
+  clear: both;
+}
+
+.box {
+  position: relative;
+  z-index: 100;
+  width: 7.5rem;
+}
+
+.box-title {
+  text-align: center;
+  margin-bottom: 0.25rem;
+  font-size: 1.375rem;
+  color: #fff;
+}
+
+.title{
+    color: #fff;
+}
+
+.box-cnt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  width: 7.5rem;
+  height: 2.5rem;
+}
+
+.box-01 {
+  margin-left: 16.25rem;
+}
+
+.box-02 {
+  margin-left: 1.875rem;
+}
+
+.box-03 {
+  margin-left: 8.125rem;
+}
+
+.box-04 {
+  margin-left: 0.625rem;
+}
+
+.box-05 {
+  margin-left: 8.125rem;
+}
+
+.box-06 {
+  margin-left: 1.875rem;
+}
+
+.box-08 {
+  margin-left: 16.25rem;
+}
+
+.box-09 {
+  margin-left: 1.875rem;
+}
+
+.box-10 {
+  margin-left: 25.625rem;
+}
+
+.box-11 {
+  margin-left: 5.625rem;
+}
+
+.box-12 {
+  margin-left: 3.125rem;
+}
+
+.box-13 {
+  margin-left: 1.875rem;
+}
+
+.box-14 {
+  margin-left: 2.5rem;
+}
+
+.box-15 {
+  margin-left: 0.3125rem;
+}
+
+.box-16 {
+  margin-left: 0.3125rem;
+}
+
+.box-17 {
+  margin-left: 5.625rem;
+}
+
+.box-18 {
+  margin-left: 12.5rem;
+}
+
+.box-19 {
+  margin-left: 27.5rem;
+}
+
+.box-20 {
+  position: relative;
+  margin-top: -1.25rem;
+  margin-left: 27.5rem;
+}
+
+.box-21 {
+  position: relative;
+  margin-top: -1.25rem;
+  margin-left: 27.5rem;
+}
+
+.box-22 {
+  position: relative;
+  margin-top: -1.5625rem;
+  margin-left: 1.875rem;
+}
+@media (max-width: 1199px) {
+  html {
+    font-size: 1.43vw;
+  }
+  .main-container {
+    padding-bottom: 0px;
+  }
+  .main-container .container {
+    margin: 0 0 2rem;
+    padding: 1rem 0;
+  }
+  .p-0 {
+    padding: 0px;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 0.48vw;
+  }
+  .main-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}

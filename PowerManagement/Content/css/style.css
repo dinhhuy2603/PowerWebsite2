@@ -1,0 +1,179 @@
+.select2-container {
+    height: calc(1.5em + .9rem + 2px) !important;
+}
+
+body[data-sidebar-size=condensed] .left-side-menu #sidebar-menu>ul>li:hover>.collapse>ul {
+    width: 300px ;
+}
+
+span.select2-selection.select2-selection--single {
+    height: calc(1.5em + .9rem + 2px) !important;
+    border-color: #ced4da;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 40px !important;
+}
+
+body.authentication-bg-pattern{
+    background: url(../images/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-login {
+    background: #ef2f2f;
+    color: #fff;
+}
+#sidebar-menu>ul>li>a,
+.nav-second-level li a,
+.navbar-custom .topnav-menu>li,
+.close,
+.modal-title {
+    font-size: 16px;
+    font-family: Nunito,sans-serif;
+}
+
+.left-side-menu{
+    background:#1c2a47;
+}
+#sidebar-menu>ul>li>a{
+    color: #fff;
+}
+.width-50{
+    width: 50%;
+}
+
+.card-header {
+    font-family: Nunito,sans-serif;
+}
+
+.maximize_height,
+.maximize_height1,
+.maximize_height2,
+.maximize_height3,
+.maximize_height4,
+.maximize_height5,
+.maximize_height6{
+    height: 380px;
+}
+
+.modal-dialog{
+    max-width: 900px;
+}
+
+.card-body .collapse:not(.show) {
+    display: block;
+    height: calc( 100vh - 270px );
+}
+
+.highcharts-figure .chart-container {
+    width: 50%;
+	height: 200px;
+}
+
+.highcharts-figure, .highcharts-data-table table {
+	margin: 0 auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+/* chart color */
+
+.card-header{
+    position: relative;
+}
+.chart_color {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 30px;
+    left: 10px;
+}
+
+@media (max-width: 1200px){
+    .modal-dialog{
+        max-width: 100%;
+    }
+    /* .highcharts-figure .chart-container{
+        height: 150px;
+    } */
+
+    h5.card-header.text-center.font-20 {
+        font-size: 14px !important;
+    }
+
+    .text-total span:first-child {
+        font-size: 48px !important;
+    }
+
+    .card.bg-card {
+        min-height: 500px;
+    }
+}
+
+@media screen and ( max-width: 767px){
+    
+}
+@media (max-width: 600px) {
+	.highcharts-figure, .highcharts-data-table table {
+		width: 100%;
+	}
+	.highcharts-figure .chart-container {
+        width: 300px;
+        height: 200px !important;
+		float: none;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 480px){
+    .pd-0-mobile{
+        padding: 0px;
+    }
+    .flex-sm-column0{
+        flex-direction: column;
+    }
+    .width-50{
+        width: 100%;
+    }
+    .card.bg-card {
+        min-height: unset;
+    }
+    
+}
+.highcharts-figure, .highcharts-data-table table {
+  min-width: 310px; 
+  max-width: 100%;
+  margin: 1em auto;
+}
+.footer {
+    position: fixed !important;
+}
