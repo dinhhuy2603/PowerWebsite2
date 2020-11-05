@@ -19,11 +19,11 @@ namespace PowerManagement.Models
     {
         [Required(ErrorMessage = "Vui lòng nhập tên đăng nhập.")]
         [MinLength(3, ErrorMessage = "Tên đăng nhập ít nhất 3 kí tự.")]
-        public string user_name { get; set; }
+        public string user { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập mật khẩu.")]
-        [MinLength(6, ErrorMessage = "Mật khẩu ít nhất 6 kí tự.")]
+        [MinLength(3, ErrorMessage = "Mật khẩu ít nhất 3 kí tự.")]
         [DataType(DataType.Password)]
-        public string password { get; set; }
+        public string pass { get; set; }
     }
 }

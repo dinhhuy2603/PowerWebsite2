@@ -14,6 +14,43 @@ namespace PowerManagement.Controllers
 {
     public class AccountController : Controller
     {
+        DBModel db = new DBModel();
+        public ActionResult Login()
+        {
+            return View();
+        }
 
+        // POST: /Account/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(UserAccLogin objUser)
+        {
+            if (ModelState.IsValid)
+            {
+                using (DBModel db = new DBModel())
+                {
+                    var obj = db.taikhoan.Where(a => a.user.Equals(objUser.user) && a.pass.Equals(objUser.pass)).FirstOrDefault();
+                    if (obj != null)
+                    {
+                        Session["UserID"] = obj.user;
+                        Session["user_name"] = obj.user.ToString();
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Email hoặc mật khẩu không chính xác.";
+                        return View();
+                    }
+                }
+            }
+            return View(objUser);
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Login");
+        }
     }
 }
