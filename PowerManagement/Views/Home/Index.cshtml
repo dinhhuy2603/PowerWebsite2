@@ -1,31 +1,199 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@section Styles
+{
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <!-- App css -->
+    <link href="~/Content/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/Content/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <!-- icons -->
+    <link href="~/Content/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+}
+<style>
+    .modal-header {
+        border-bottom: 1px solid #e6e6e6;
+    }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    .text-total span:first-child {
+        font-size: 56px;
+    }
+
+    .text-total span:last-child {
+        font-size: 30px;
+    }
+
+    .bg-white {
+        background-color: #f7f7f7 !important;
+    }
+</style>
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<div class="content-page pd-0-mobile">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid pd-0-mobile">
+            <div class="row mt-5">
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
+                        
+                        <div class="card-body bg-white border-top">
+                            <h3 class="text-center font-24">PV Entry</h3>
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="sum_kwh_inday"></span><span class="font-24">1122 kWh</span>
+                                    <p class="d-block font-16">Today 112</p>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Total: <span id="sum_kwh"></span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">GAS</h5>
+                        <div class="card-body bg-white border-top">
+                            <h3 class="text-center font-24">PV Entry</h3>
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="gas_inday"></span><span class="font-24"> m3</span>
+                                    <p class="d-block font-16">Today</p>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Total: <span id="gas_total"></span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">WATER</h5>
+                        <div class="card-body bg-white border-top">
+                            <h3 class="text-center font-24">PV Entry</h3>
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="water_inday"></span><span class="font-24"> m3</span>
+                                    <p class="d-block font-16">Today</p>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Total: <span id="water_total"></span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+                <!-- Row 2 START-->
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
+
+                        <div class="card-body bg-white border-top">
+                            <h3 class="text-center font-24">PV Entry</h3>
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/energy-overview/Picture2-removebg-preview.png" height="60px" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="sum_kwh_inday"></span><span class="font-24">1122 kWh</span>
+                                    <p class="d-block font-16">Today 112</p>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Total: <span id="sum_kwh"></span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+
+            </div>
+        </div> <!-- container -->
+
+    </div> <!-- content -->
 </div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <span class="font-16">Energy from: <strong>20/09/2020</strong></span>
+            </div>
+            <div class="col-md-6" style="text-align: right">
+                <span class="font-16"><strong id="getTime">@DateTime.Now.DayOfWeek, @DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</strong></span>
+            </div>
+        </div>
+    </div>
+</footer>
+@*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="~/Content/js/vendor.min.js"></script>
+<script src="~/Content/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
+<script src="~/Content/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="~/Content/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+
+<!-- Dashboard 2 init -->
+<script src="~/Content/js/pages/dashboard-2.init.js"></script>
+<!-- App js-->
+<script src="~/Content/js/app.min.js"></script>
+
+<script type="text/javascript">
+    var myVar;
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    $(document).ready(function () {
+        clearInterval(myVar);
+        myVar = setInterval(function () {
+            //data_hienthi = getIndexData();
+            //if (data_hienthi) {
+            //    $('#gas_now').html(addCommas(data_hienthi[0].luu_luong_hien_tai));
+            //    $('#gas_inday').html(addCommas(data_hienthi[0].luu_luong_tong_ngay));
+            //    $('#gas_total').html(addCommas(data_hienthi[0].luu_luong_tong) + " m3");
+            //    $('#water_now').html(addCommas(data_hienthi[1].luu_luong_hien_tai));
+            //    $('#water_inday').html(addCommas(data_hienthi[1].luu_luong_tong_ngay));
+            //    $('#water_total').html(addCommas(data_hienthi[1].luu_luong_tong) + " m3");
+
+            //    $('#sum_ptotal').html(addCommas(data_hienthi[2].Ptotal));
+            //    $('#sum_kwh_inday').html(addCommas(data_hienthi[2].KWhDay));
+            //    $('#sum_kwh').html(addCommas(data_hienthi[2].Kwh) + " MWh");
+            //}
+
+            var currentdate = new Date();
+            var today = weekday[currentdate.getDay()];
+            var datetime = today + ", "
+                + currentdate.getDate() + "/"
+                + (currentdate.getMonth() + 1) + "/"
+                + currentdate.getFullYear() + " "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            $("#getTime").html(datetime)
+        }, 1000);
+    });
+
+    function getIndexData() {
+        var hienthi_data = {};
+        $.ajax({
+            url: '/Home/GetIndexData/',
+            type: 'get',
+            async: false,
+            success: function (data) {
+                hienthi_data = data;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                var errorMsg = 'Ajax request failed: ' + xhr.responseText;
+                $('#content').html(errorMsg);
+            }
+        });
+        return hienthi_data;
+    }
+</script>
