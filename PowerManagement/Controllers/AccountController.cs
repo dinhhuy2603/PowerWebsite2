@@ -38,7 +38,7 @@ namespace PowerManagement.Controllers
                     }
                     else
                     {
-                        ViewBag.Message = "Email hoặc mật khẩu không chính xác.";
+                        ViewBag.Message = "Username hoặc mật khẩu không chính xác.";
                         return View();
                     }
                 }

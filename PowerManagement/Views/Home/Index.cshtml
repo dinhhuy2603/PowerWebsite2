@@ -43,50 +43,49 @@
                 <div class="col-xl-4 col-md-4">
                     <div class="card bg-card">
                         <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
-                        
-                        <div class="card-body bg-white border-top">
+                        <div class="card-body bg-white border-top" id="div1">
                             <h3 class="text-center font-24">PV Entry</h3>
                             <div class="flex-wrap d-flex align-items-center justify-content-center">
                                 <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
                                 <div class="text-total">
-                                    <span id="sum_kwh_inday"></span><span class="font-24">1122 kWh</span>
-                                    <p class="d-block font-16">Today 112</p>
+                                    <span id="cb1_hienthi"></span><span class="font-24">@ViewBag.hienthi.cb1 &deg;C</span>
+                                    @*<p class="d-block font-16">Today 112</p>*@
                                 </div>
                             </div>
-                            <p class="text-center font-16 mt-3">Total: <span id="sum_kwh"></span></p>
+                            <p class="text-center font-16 mt-3">@ViewBag.trangthai.status_cb1"<span id="sum_kwh"></span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
                 <div class="col-xl-4 col-md-4">
                     <div class="card bg-card">
-                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">GAS</h5>
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
                         <div class="card-body bg-white border-top">
                             <h3 class="text-center font-24">PV Entry</h3>
                             <div class="flex-wrap d-flex align-items-center justify-content-center">
                                 <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
                                 <div class="text-total">
-                                    <span id="gas_inday"></span><span class="font-24"> m3</span>
-                                    <p class="d-block font-16">Today</p>
+                                    <span id="cb2_hienthi"></span><span class="font-24">@ViewBag.hienthi.cb2 &deg;C</span>
+                                    @*<p class="d-block font-16">Today</p>*@
                                 </div>
                             </div>
-                            <p class="text-center font-16 mt-3">Total: <span id="gas_total"></span></p>
+                            <p class="text-center font-16 mt-3">@ViewBag.trangthai.status_cb2<span id="gas_total"></span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
                 <div class="col-xl-4 col-md-4">
                     <div class="card bg-card">
-                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">WATER</h5>
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
                         <div class="card-body bg-white border-top">
                             <h3 class="text-center font-24">PV Entry</h3>
                             <div class="flex-wrap d-flex align-items-center justify-content-center">
                                 <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
                                 <div class="text-total">
-                                    <span id="water_inday"></span><span class="font-24"> m3</span>
-                                    <p class="d-block font-16">Today</p>
+                                    <span id="water_inday"></span><span class="font-24">@ViewBag.hienthi.cb3 &deg;C</span>
+                                    @*<p class="d-block font-16">Today</p>*@
                                 </div>
                             </div>
-                            <p class="text-center font-16 mt-3">Total: <span id="water_total"></span></p>
+                            <p class="text-center font-16 mt-3">@ViewBag.trangthai.status_cb3 ?? "NOT"<span id="water_total"></span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
@@ -95,16 +94,12 @@
                     <div class="card bg-card">
                         <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
 
-                        <div class="card-body bg-white border-top">
-                            <h3 class="text-center font-24">PV Entry</h3>
-                            <div class="flex-wrap d-flex align-items-center justify-content-center">
-                                <img src="~/Content/images/energy-overview/Picture2-removebg-preview.png" height="60px" class="mr-3" alt="">
-                                <div class="text-total">
-                                    <span id="sum_kwh_inday"></span><span class="font-24">1122 kWh</span>
-                                    <p class="d-block font-16">Today 112</p>
-                                </div>
+                        <div class="card-body border-top" style="background-image: linear-gradient(#1aeffb, #0082af);"  id="div4" >
+                            <div class="flex-wrap d-flex align-items-center justify-content-center" style="height: 100%">
+                                <span class="text-total" style="font-size: 69px; font-family: system-ui; color: #00fff3f2">
+                                   GOOD
+                                </span>
                             </div>
-                            <p class="text-center font-16 mt-3">Total: <span id="sum_kwh"></span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
@@ -178,6 +173,9 @@
                 + currentdate.getSeconds();
             $("#getTime").html(datetime)
         }, 1000);
+
+        var height = $("#div1").innerHeight();
+        $("#div4").css('height', height + "px");
     });
 
     function getIndexData() {
@@ -196,4 +194,6 @@
         });
         return hienthi_data;
     }
+
+    
 </script>

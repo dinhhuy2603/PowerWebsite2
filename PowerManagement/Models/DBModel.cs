@@ -14,5 +14,7 @@ namespace PowerManagement.Models
         }
 
         public DbSet<Taikhoan> taikhoan { get; set; }
+        public DbSet<Hienthiweb> hienthi { get; set; }
+        public DbSet<Trangthai> trangthai { get; set; }
     }
 }

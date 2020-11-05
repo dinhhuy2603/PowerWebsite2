@@ -86,3 +86,4 @@ D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\Microsoft.Owin.Se
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\obj\Debug\PowerManagement.dll
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\obj\Debug\PowerManagement.pdb
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\obj\Debug\PowerManagement.csprojResolveAssemblyReference.cache
