@@ -23,12 +23,24 @@
         font-size: 56px;
     }
 
-    .text-total span:last-child {
+    /*.text-total span:last-child {
         font-size: 30px;
-    }
+    }*/
 
     .bg-white {
-        background-color: #f7f7f7 !important;
+        background-color: #FFFFFF !important;
+    }
+
+    #div4 {
+        background-image: linear-gradient(#06c50e, #1dc724);
+        /*background-color: #00BF00;*/
+    }
+
+    #cb4_hienthi {
+        font-size: 69px;
+        font-family: system-ui;
+        /*color: #00fff3;*/
+        color: #005aff;
     }
 </style>
 <!-- ============================================================== -->
@@ -42,64 +54,81 @@
             <div class="row mt-5">
                 <div class="col-xl-4 col-md-4">
                     <div class="card bg-card">
-                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB1</h5>
                         <div class="card-body bg-white border-top" id="div1">
-                            <h3 class="text-center font-24">PV Entry</h3>
                             <div class="flex-wrap d-flex align-items-center justify-content-center">
                                 <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
                                 <div class="text-total">
-                                    <span id="cb1_hienthi"></span><span class="font-24">@ViewBag.hienthi.cb1 &deg;C</span>
-                                    @*<p class="d-block font-16">Today 112</p>*@
+                                    <span id="cb1_hienthi">@ViewBag.hienthi.cb1 &deg;C</span>
                                 </div>
                             </div>
-                            <p class="text-center font-16 mt-3">@ViewBag.trangthai.status_cb1"<span id="sum_kwh"></span></p>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb1_status">@ViewBag.trangthai.status_cb1</span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
                 <div class="col-xl-4 col-md-4">
                     <div class="card bg-card">
-                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB2</h5>
                         <div class="card-body bg-white border-top">
-                            <h3 class="text-center font-24">PV Entry</h3>
                             <div class="flex-wrap d-flex align-items-center justify-content-center">
                                 <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
                                 <div class="text-total">
-                                    <span id="cb2_hienthi"></span><span class="font-24">@ViewBag.hienthi.cb2 &deg;C</span>
-                                    @*<p class="d-block font-16">Today</p>*@
+                                    <span id="cb2_hienthi">@ViewBag.hienthi.cb2 &deg;C</span>
                                 </div>
                             </div>
-                            <p class="text-center font-16 mt-3">@ViewBag.trangthai.status_cb2<span id="gas_total"></span></p>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb2_status">@ViewBag.trangthai.status_cb2</span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
                 <div class="col-xl-4 col-md-4">
                     <div class="card bg-card">
-                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB3</h5>
                         <div class="card-body bg-white border-top">
-                            <h3 class="text-center font-24">PV Entry</h3>
                             <div class="flex-wrap d-flex align-items-center justify-content-center">
                                 <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
                                 <div class="text-total">
-                                    <span id="water_inday"></span><span class="font-24">@ViewBag.hienthi.cb3 &deg;C</span>
-                                    @*<p class="d-block font-16">Today</p>*@
+                                    <span id="cb3_hienthi">@ViewBag.hienthi.cb3 &deg;C</span>
                                 </div>
                             </div>
-                            <p class="text-center font-16 mt-3">@ViewBag.trangthai.status_cb3 ?? "NOT"<span id="water_total"></span></p>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb3_status">@ViewBag.trangthai.status_cb3</span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
                 <!-- Row 2 START-->
                 <div class="col-xl-4 col-md-4">
                     <div class="card bg-card">
-                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
-
-                        <div class="card-body border-top" style="background-image: linear-gradient(#1aeffb, #0082af);"  id="div4" >
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB4</h5>
+                        <div class="card-body border-top" id="div4" >
                             <div class="flex-wrap d-flex align-items-center justify-content-center" style="height: 100%">
-                                <span class="text-total" style="font-size: 69px; font-family: system-ui; color: #00fff3f2">
+                                <span class="text-total" id="cb4_hienthi">
                                    GOOD
                                 </span>
                             </div>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
+                        <div class="card-body bg-white">
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="water_now">@ViewBag.hienthi.cb1 &deg;C</span>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb3_status">@ViewBag.trangthai.status_cb1</span></p>
+                        </div> <!-- end card-body -->
+                        <div class="card-body bg-white border-top">
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/doam.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="water_inday">@ViewBag.hienthi.cb2 %</span>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb3_status">@ViewBag.trangthai.status_cb2</span></p>
                         </div> <!-- end card-body -->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
@@ -113,7 +142,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <span class="font-16">Energy from: <strong>20/09/2020</strong></span>
             </div>
             <div class="col-md-6" style="text-align: right">
                 <span class="font-16"><strong id="getTime">@DateTime.Now.DayOfWeek, @DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</strong></span>
@@ -148,19 +176,16 @@
     $(document).ready(function () {
         clearInterval(myVar);
         myVar = setInterval(function () {
-            //data_hienthi = getIndexData();
-            //if (data_hienthi) {
-            //    $('#gas_now').html(addCommas(data_hienthi[0].luu_luong_hien_tai));
-            //    $('#gas_inday').html(addCommas(data_hienthi[0].luu_luong_tong_ngay));
-            //    $('#gas_total').html(addCommas(data_hienthi[0].luu_luong_tong) + " m3");
-            //    $('#water_now').html(addCommas(data_hienthi[1].luu_luong_hien_tai));
-            //    $('#water_inday').html(addCommas(data_hienthi[1].luu_luong_tong_ngay));
-            //    $('#water_total').html(addCommas(data_hienthi[1].luu_luong_tong) + " m3");
-
-            //    $('#sum_ptotal').html(addCommas(data_hienthi[2].Ptotal));
-            //    $('#sum_kwh_inday').html(addCommas(data_hienthi[2].KWhDay));
-            //    $('#sum_kwh').html(addCommas(data_hienthi[2].Kwh) + " MWh");
-            //}
+            data_hienthi = getIndexData();
+            if (data_hienthi) {
+                $('#cb1_hienthi').html(addCommas(data_hienthi[0].cb1) + " &deg;C");
+                $('#cb2_hienthi').html(addCommas(data_hienthi[0].cb2) + " &deg;C");
+                $('#cb3_hienthi').html(addCommas(data_hienthi[0].cb3) + " &deg;C");
+                $('#cb4_hienthi').html(addCommas(data_hienthi[0].cb4));
+                $('#cb1_status').html(data_hienthi[1].status_cb1);
+                $('#cb2_status').html(data_hienthi[1].status_cb2);
+                $('#cb4_status').html(data_hienthi[1].status_cb3);
+            }
 
             var currentdate = new Date();
             var today = weekday[currentdate.getDay()];
@@ -181,7 +206,7 @@
     function getIndexData() {
         var hienthi_data = {};
         $.ajax({
-            url: '/Home/GetIndexData/',
+            url: '/Home/GetHienThiOverview/',
             type: 'get',
             async: false,
             success: function (data) {

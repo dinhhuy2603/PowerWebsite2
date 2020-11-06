@@ -17,5 +17,10 @@ namespace PowerManagement.Models
         public string status_cb4 { get; set; }
         public string status_modbus { get; set; }
         public string status_ketnoiDB { get; set; }
+
+        public static implicit operator string(Trangthai v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

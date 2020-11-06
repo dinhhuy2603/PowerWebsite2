@@ -15,5 +15,10 @@ namespace PowerManagement.Models
         public string cb2 { get; set; }
         public string cb3 { get; set; }
         public string cb4 { get; set; }
+
+        public static implicit operator string(Hienthiweb v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

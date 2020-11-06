@@ -17,14 +17,58 @@ namespace PowerManagement.Controllers
                 {
                     var hienthi = db.hienthi.FirstOrDefault();
                     var trangthai = db.trangthai.FirstOrDefault();
-                    ViewBag.hienthi = !string.IsNullOrEmpty(hienthi.cb1) ? hienthi : new Hienthiweb();
-                    ViewBag.trangthai = !string.IsNullOrEmpty(trangthai.status_cb1) ? trangthai : new Trangthai();
+                    ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
+                    ViewBag.trangthai = trangthai != null ? trangthai : new Trangthai();
                     return View();
                 }
                 else
                 {
                     return RedirectToAction("Login", "Account");
                 }
+            }
+        }
+
+        public ActionResult ChartCb1()
+        {
+            using (DBModel db = new DBModel())
+            {
+                var hienthi = db.hienthi.FirstOrDefault();
+                ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
+                return View();
+            }
+        }
+
+        public ActionResult ChartCb2()
+        {
+            using (DBModel db = new DBModel())
+            {
+                var hienthi = db.hienthi.FirstOrDefault();
+                ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
+                return View();
+            }
+        }
+
+        public ActionResult ChartCb3()
+        {
+            using (DBModel db = new DBModel())
+            {
+                var hienthi = db.hienthi.FirstOrDefault();
+                ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetHienThiOverview()
+        {
+            using (DBModel db = new DBModel())
+            {
+                var hienthi = db.hienthi.FirstOrDefault();
+                var trangthai = db.trangthai.FirstOrDefault();
+                var data = new List<object>();
+                data.Add(hienthi);
+                data.Add(trangthai);
+                return Json(data.ToArray(), JsonRequestBehavior.AllowGet);
             }
         }
     }

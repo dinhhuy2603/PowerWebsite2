@@ -122,7 +122,7 @@
                                 <span>Energy Overview</span>
                             </a>
                         </li>
-                        <li>
+                        @*<li>
                             <a href="@Url.Action("Dashboard","Home")">
                                 <i class="fas fa-chart-bar"></i>
                                 <span> Dashboard</span>
@@ -133,8 +133,7 @@
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <span> Overview </span>
                             </a>
-                        </li>
-
+                        </li>*@
                         <li>
                             <a href="#menu2" data-toggle="collapse">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -144,28 +143,13 @@
                             <div class="collapse" id="menu2">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="@Url.Action("Index","Gas")">Chart Gas Online</a>
+                                        <a href="@Url.Action("ChartCb1", "Home")">Chart CB1</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("Index","Water")">Chart Water Online</a>
+                                        <a href="@Url.Action("ChartCb2", "Home")">Chart CB2</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("Kenh2Online", "Kenh")">LP-SNACK-1</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Kenh3Online", "Kenh")">LP-SNACK-2</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Kenh1Online", "Kenh")">LP-SNACK-3</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Kenh5Online", "Kenh")">DP-SNACK-1</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Kenh4Online", "Kenh")">DP-SNACK-2</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Kenh6Online", "Kenh")">DP-SNACK-3</a>
+                                        <a href="@Url.Action("ChartCb3", "Home")">Chart CB3</a>
                                     </li>
                                 </ul>
                             </div>
