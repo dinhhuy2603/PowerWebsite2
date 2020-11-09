@@ -1,0 +1,325 @@
+﻿@{
+    ViewBag.Title = "Chart Report";
+}
+@section Styles
+{
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/Content//css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/Content/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+
+    <link href="~/Content/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="~/Content/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+
+    <!-- icons -->
+    <link href="~/Content/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+}
+
+@{
+    var fromDate = (DateTime)ViewBag.fromDate;
+    var toDate = (DateTime)ViewBag.toDate;
+}
+<style>
+    /* Popup Export */
+    form {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+
+    .modal-header {
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .modal-dialog {
+        min-width: 500px;
+    }
+
+    .apex-charts {
+        height: 380px;
+    }
+
+    .highcharts-tooltip span {
+        width: 160px !important;
+        overflow: auto;
+        white-space: normal !important;
+        font-size: 12px;
+    }
+
+    .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+
+    .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+    }
+
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
+</style>
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript: void(0);">Charts</a></li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Charts GAS Report</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+            <div class="row">
+                <div class="col-xl-12 col-md-12">
+                    <!-- Portlet card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="header-title mb-0"><b>m3/h</b></h4>
+                                <div class="d-flex align-items-center">
+                                    <div class="mr-2">
+                                        <button class="btn btn-primary" type="button" id="btn_export_now">
+                                            Export Excel   <i class="fas fa-file-excel"></i>
+                                        </button>
+                                    </div>
+                                    <a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close font-20"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="maximize_height pt-3 show highcharts-figure" dir="ltr">
+                                <div id="chart1" class="apex-charts" data-colors="#f672a7"></div>
+                            </div> <!-- collapsed end -->
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container -->
+    </div> <!-- content -->
+</div>
+
+<div class="modal fade modal-export" id="centermodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myCenterModalLabel">Export Excel</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body bg-card">
+                <div class="main-container">
+                    <div class="container">
+                        <div class="container_box">
+                            @using (Html.BeginForm("ExportGasReport", "ExportExcel", FormMethod.Get, new { @class = "", role = "form", @id = "frm_export" }))
+                            {
+                                <label>
+                                    From: @Html.TextBox("fromDate", "{0:yyyy-MM-dd}", new { placeholder = "dd/mm/yyyy", @class = "form-control", type = "date", id = "fromDate", autocomplete = "off" })
+                                </label>
+                                <label class="ml-2">
+                                    To: @Html.TextBox("toDate", string.Format("{0:dd/MM/yyyy}", toDate), new { placeholder = "dd/mm/yyyy", @class = "form-control", type = "date", id = "toDate", autocomplete = "off" })
+                                </label>
+                                <button class="btn btn-primary" type="submit" id="btn_submit">
+                                    <i class="fas fa-file-download"></i>
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="~/Content/js/vendor.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.src.js"></script>
+<!-- App js-->
+<script src="~/Content/js/app.min.js"></script>
+<script type="text/javascript">
+    var chart_2;
+    var curr_year = new Date().getFullYear();
+    var curr_month = new Date().getMonth() + 1;
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    $(document).ready(function () {
+        //Perform Ajax request.
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+        showChartTotalCompare('today');
+    });
+
+    function getChartGasData() {
+        var chartData = [];
+        $.ajax({
+            url: '/Report/GetReportChart/',
+            //data: {
+            //    year: curr_year,
+            //    month: curr_month
+            //},
+            type: 'get',
+            async: false,
+            success: function (data) {
+                console.log(data)
+                data.forEach(function (item) {
+                    chartData.push([
+                        parseInt(item.Thoigian.replace(/\/Date\((-?\d+)\)\//, '$1')),
+                        parseFloat(parseFloat(item.giatri || 0).toFixed(2)),
+                    ]);
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                var errorMsg = 'Ajax request failed: ' + responseText.xhrcontent
+                $('#;').html(errorMsg);
+            }
+        });
+        return chartData;
+    }
+
+    let chart_1 = new Highcharts.stockChart('chart1', {
+        chart: {
+            height: 380,
+            type: 'areaspline',
+        },
+        rangeSelector: {
+            allButtonsEnabled: true,
+            buttons: [{
+                type: 'week',
+                count: 1,
+                text: '1w'
+            }, {
+                type: 'month',
+                count: 1,
+                text: '1m'
+            }, {
+                type: 'month',
+                count: 6,
+                text: '6m'
+            }, {
+                type: 'year',
+                count: 1,
+                text: '1y'
+            }, {
+                type: 'all',
+                text: 'All'
+            }],
+            selected: 2,
+        },
+        title: {
+            text: ''
+        },
+        yAxis: {
+            title: { text: 'm3' },
+            plotLines: [{ value: 0, width: 1, color: '#808080' }],
+            opposite: false,
+            //min: 0,
+            //max: 500,
+        },
+        credits: { enabled: false },
+        subtitle: {
+            text: ''
+        },
+
+        _navigator: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'm3/h',
+            color: '#2764C1',
+            data: getChartGasData(),
+            marker: {
+                enabled: null, // auto
+                radius: 3,
+                lineWidth: 1,
+                lineColor: '#FFFFFF'
+            },
+            tooltip: {
+                valueDecimals: 2
+            }
+        }]
+    });
+
+
+    $('#compare-chart').change(function(){
+        showChartTotalCompare($(this).val());
+    });
+
+    var getDaysInMonth = function(month,year) {
+        return new Date(year, month, 0).getDate();
+    };
+
+    $('.button-menu-mobile').click(function (event) {
+        chart_1.setSize(null)
+    });
+
+    $('#btn_export').click(function (event) {
+        event.preventDefault();
+        $('#fromDate').val('');
+        $('#toDate').val('');
+        $('#frm_export').attr('action', '/ExportExcel/ExportGasReport');
+        $('#centermodal').modal('show');
+    });
+
+    var minDate = $('input.highcharts-range-selector:eq(0)');
+    var maxDate = $('input.highcharts-range-selector:eq(1)');
+    $('input.highcharts-range-selector:eq(0)').change(function () {
+        $('#fromDate').val($(this).val())
+    });
+
+    $('input.highcharts-range-selector:eq(1)').change(function () {
+        $('#toDate').val($(this).val())
+    });
+
+    $('#btn_export_now').click(function (event) {
+        event.preventDefault();
+        $('#frm_export').attr('action', '/ExportExcel/ExportGasNowReport');
+        $('#fromDate').val(minDate.val());
+        $('#toDate').val(maxDate.val());
+        $('#centermodal').modal('show');
+    });
+</script>
+
+<!-- App js -->

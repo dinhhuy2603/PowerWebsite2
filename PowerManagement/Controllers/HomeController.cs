@@ -32,9 +32,16 @@ namespace PowerManagement.Controllers
         {
             using (DBModel db = new DBModel())
             {
-                var hienthi = db.hienthi.FirstOrDefault();
-                ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
-                return View();
+                if (Session["UserID"] != null)
+                {
+                    var hienthi = db.hienthi.FirstOrDefault();
+                    ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Login", "Account");
+                }
             }
         }
 
@@ -42,9 +49,16 @@ namespace PowerManagement.Controllers
         {
             using (DBModel db = new DBModel())
             {
-                var hienthi = db.hienthi.FirstOrDefault();
-                ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
-                return View();
+                if (Session["UserID"] != null)
+                {
+                    var hienthi = db.hienthi.FirstOrDefault();
+                    ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Login", "Account");
+                }
             }
         }
 
@@ -52,9 +66,16 @@ namespace PowerManagement.Controllers
         {
             using (DBModel db = new DBModel())
             {
-                var hienthi = db.hienthi.FirstOrDefault();
-                ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
-                return View();
+                if (Session["UserID"] != null)
+                {
+                    var hienthi = db.hienthi.FirstOrDefault();
+                    ViewBag.hienthi = hienthi != null ? hienthi : new Hienthiweb();
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Login", "Account");
+                }
             }
         }
 
