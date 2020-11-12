@@ -11,7 +11,8 @@ namespace PowerManagement.Models
     public class Report
     {
         [Key]
-        public DateTime Thoigian { get; set; }
+        public int id { get; set; }
+        public DateTime thoigian { get; set; }
         public string tencb { get; set; }
         public string giatri { get; set; }
     }

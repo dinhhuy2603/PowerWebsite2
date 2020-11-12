@@ -87,3 +87,9 @@ D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\Microsoft.Owin.Se
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\obj\Debug\PowerManagement.dll
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\obj\Debug\PowerManagement.pdb
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\obj\Debug\PowerManagement.csprojResolveAssemblyReference.cache
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\PagedList.dll
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\PagedList.Mvc.dll
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\PagedList.xml
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\PagedList.Mvc.xml
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\EPPlus.dll
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\EPPlus.xml

@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="~/Content/images/favicon.ico">
 
     <!-- App css -->
-    <link href="~/Content//css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="~/Content/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
 
     <link href="~/Content/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
@@ -100,7 +100,7 @@
                                 <li class="breadcrumb-item active"><a href="javascript: void(0);">Charts</a></li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Charts GAS Report</h4>
+                        <h4 class="page-title">Chart Report</h4>
                     </div>
                 </div>
             </div>
@@ -114,11 +114,21 @@
                                 <h4 class="header-title mb-0"><b>m3/h</b></h4>
                                 <div class="d-flex align-items-center">
                                     <div class="mr-2">
-                                        <button class="btn btn-primary" type="button" id="btn_export_now">
-                                            Export Excel   <i class="fas fa-file-excel"></i>
-                                        </button>
+                                        <select class="form-control" id="select-chart">
+                                            <option value="all">All</option>
+                                            <option value="cb1">Tu 1</option>
+                                            <option value="cb2">Tu 2</option>
+                                            <option value="cb3">Tu 3</option>
+                                        </select>
                                     </div>
                                     <a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close font-20"></i></a>
+
+                                    @*<div class="mr-2">
+                                        <button class="btn btn-primary" type="button" id="btn_export">
+                                            Export Excel   <i class="fas fa-file-excel"></i>
+                                        </button>
+                                    </div>*@
+                                    @*<a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close font-20"></i></a>*@
                                 </div>
                             </div>
                         </div>
@@ -188,7 +198,7 @@
                 useUTC: false
             }
         });
-        showChartTotalCompare('today');
+        showChart('all');
     });
 
     function getChartGasData() {
@@ -202,13 +212,13 @@
             type: 'get',
             async: false,
             success: function (data) {
-                console.log(data)
-                data.forEach(function (item) {
-                    chartData.push([
-                        parseInt(item.Thoigian.replace(/\/Date\((-?\d+)\)\//, '$1')),
-                        parseFloat(parseFloat(item.giatri || 0).toFixed(2)),
-                    ]);
-                });
+                chartData = data;
+                //data.forEach(function (item) {
+                //    chartData.push([
+                //        parseInt(item.Thoigian.replace(/\/Date\((-?\d+)\)\//, '$1')),
+                //        parseFloat(parseFloat(item.giatri || 0).toFixed(2)),
+                //    ]);
+                //});
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 var errorMsg = 'Ajax request failed: ' + responseText.xhrcontent
@@ -217,75 +227,121 @@
         });
         return chartData;
     }
-
-    let chart_1 = new Highcharts.stockChart('chart1', {
-        chart: {
-            height: 380,
-            type: 'areaspline',
-        },
-        rangeSelector: {
-            allButtonsEnabled: true,
-            buttons: [{
-                type: 'week',
-                count: 1,
-                text: '1w'
-            }, {
-                type: 'month',
-                count: 1,
-                text: '1m'
-            }, {
-                type: 'month',
-                count: 6,
-                text: '6m'
-            }, {
-                type: 'year',
-                count: 1,
-                text: '1y'
-            }, {
-                type: 'all',
-                text: 'All'
-            }],
-            selected: 2,
-        },
-        title: {
-            text: ''
-        },
-        yAxis: {
-            title: { text: 'm3' },
-            plotLines: [{ value: 0, width: 1, color: '#808080' }],
-            opposite: false,
-            //min: 0,
-            //max: 500,
-        },
-        credits: { enabled: false },
-        subtitle: {
-            text: ''
-        },
-
-        _navigator: {
-            enabled: false
-        },
-
-        series: [{
-            name: 'm3/h',
-            color: '#2764C1',
-            data: getChartGasData(),
-            marker: {
-                enabled: null, // auto
-                radius: 3,
-                lineWidth: 1,
-                lineColor: '#FFFFFF'
-            },
-            tooltip: {
-                valueDecimals: 2
+    Array.prototype.remove = function (x) {
+        var i;
+        for (i in this) {
+            if (this[i].toString() == x.toString()) {
+                this.splice(i, 1)
             }
-        }]
+        }
+    }
+
+    $('#select-chart').change(function () {
+        showChart($(this).val());
     });
 
+    function showChart(type) {
+        let data = getChartGasData();
+        let seriesOptions = [];
+        seriesOptions[0] = [];
+        seriesOptions[0].name = data[0][0].tencb != undefined ? data[0][0].tencb : "Tu 1";
+        seriesOptions[0].color = '#2764C1';
+        seriesOptions[0].data = [];
+        seriesOptions[0].categories = [];
 
-    $('#compare-chart').change(function(){
-        showChartTotalCompare($(this).val());
-    });
+        seriesOptions[1] = [];
+        seriesOptions[1].name = data[1][0].tencb != undefined ? data[1][0].tencb : "Tu 2";
+        seriesOptions[1].color = '#42f560';
+        seriesOptions[1].data = [];
+        seriesOptions[1].categories = [];
+
+        seriesOptions[2] = [];
+        seriesOptions[2].name = data[2][0].tencb != undefined ? data[2][0].tencb : "Tu 3";
+        seriesOptions[2].color = '#f542a4';
+        seriesOptions[2].data = [];
+        seriesOptions[2].categories = [];
+        console.log(seriesOptions)
+        for (i = 0; i < data.length; i++) {
+            for (j = 0; j < data[i].length; j++) {
+                seriesOptions[i].data.push([
+                    parseInt(data[i][j].thoigian.replace(/\/Date\((-?\d+)\)\//, '$1')),
+                    parseFloat(parseFloat(data[i][j].giatri) || 0)
+                ])
+            }
+            seriesOptions[i].categories.push([
+                data[i][0].tencb,
+            ])
+        }
+        
+        switch (type) {
+            case 'cb1':
+                seriesOptions.splice($.inArray(seriesOptions[1], seriesOptions), 2);
+                break
+            case 'cb2':
+                seriesOptions.splice($.inArray(seriesOptions[0], seriesOptions), 1);
+                seriesOptions.splice($.inArray(seriesOptions[1], seriesOptions), 1);
+                break
+            case 'cb3':
+                seriesOptions.splice($.inArray(seriesOptions[0], seriesOptions), 2);
+            default:
+                break
+        }
+
+        let chart_1 = new Highcharts.stockChart('chart1', {
+            chart: {
+                height: 380,
+                type: 'areaspline',
+            },
+            rangeSelector: {
+                allButtonsEnabled: true,
+                buttons: [{
+                    type: 'week',
+                    count: 1,
+                    text: '1w'
+                }, {
+                    type: 'month',
+                    count: 1,
+                    text: '1m'
+                }, {
+                    type: 'month',
+                    count: 6,
+                    text: '6m'
+                }, {
+                    type: 'year',
+                    count: 1,
+                    text: '1y'
+                }, {
+                    type: 'all',
+                    text: 'All'
+                }],
+                selected: 2,
+            },
+            title: {
+                text: ''
+            },
+            yAxis: {
+                title: { text: 'm3' },
+                plotLines: [{ value: 0, width: 1, color: '#808080' }],
+                opposite: false,
+                //min: 0,
+                //max: 500,
+            },
+            credits: { enabled: false },
+            subtitle: {
+                text: ''
+            },
+
+            _navigator: {
+                enabled: false
+            },
+            series: seriesOptions
+        });
+    }
+
+
+    //$('#compare-chart').change(function(){
+    //    showChartTotalCompare($(this).val());
+    //});
 
     var getDaysInMonth = function(month,year) {
         return new Date(year, month, 0).getDate();
@@ -295,31 +351,6 @@
         chart_1.setSize(null)
     });
 
-    $('#btn_export').click(function (event) {
-        event.preventDefault();
-        $('#fromDate').val('');
-        $('#toDate').val('');
-        $('#frm_export').attr('action', '/ExportExcel/ExportGasReport');
-        $('#centermodal').modal('show');
-    });
-
-    var minDate = $('input.highcharts-range-selector:eq(0)');
-    var maxDate = $('input.highcharts-range-selector:eq(1)');
-    $('input.highcharts-range-selector:eq(0)').change(function () {
-        $('#fromDate').val($(this).val())
-    });
-
-    $('input.highcharts-range-selector:eq(1)').change(function () {
-        $('#toDate').val($(this).val())
-    });
-
-    $('#btn_export_now').click(function (event) {
-        event.preventDefault();
-        $('#frm_export').attr('action', '/ExportExcel/ExportGasNowReport');
-        $('#fromDate').val(minDate.val());
-        $('#toDate').val(maxDate.val());
-        $('#centermodal').modal('show');
-    });
 </script>
 
 <!-- App js -->

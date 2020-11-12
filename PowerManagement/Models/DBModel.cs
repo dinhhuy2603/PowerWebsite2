@@ -17,5 +17,6 @@ namespace PowerManagement.Models
         public DbSet<Hienthiweb> hienthi { get; set; }
         public DbSet<Trangthai> trangthai { get; set; }
         public DbSet<Report> report { get; set; }
+        public DbSet<Alarm> alarm { get; set; }
     }
 }

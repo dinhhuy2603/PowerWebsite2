@@ -1,0 +1,170 @@
+﻿@model IEnumerable<PowerManagement.Models.Report>
+@{
+    ViewBag.Title = "Report Table";
+}
+@section Styles
+{
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/Content/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+
+    <link href="~/Content/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="~/Content/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+
+    <!-- icons -->
+    <link href="~/Content/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+}
+@{
+    var fromDate = (DateTime)ViewBag.fromDate;
+    var toDate = (DateTime)ViewBag.toDate;
+}
+<style>
+    .dataTables_export {
+        margin-top: 20px;
+    }
+    .col-12 label{
+        width: 100%;
+    }
+    .col-12 #btn_search {
+        margin-top: 20px;
+    }
+    
+</style>
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript: void(0);">Report Table</a></li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Report</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card ">
+                        <div class="card-header">
+                            <h3 class="card-title"></h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-6 col-md-8">
+                                @using (Html.BeginForm("Index", "Report", FormMethod.Get, new { @class = "", role = "form" }))
+                                {
+                                    <div class="row">
+                                            <div class="col-md-3 col-12">
+                                                <label>
+                                                    Từ ngày: @Html.TextBox("fromDate", string.Format("{0:dd/MM/yyyy}", fromDate), new { placeholder = "dd/mm/yyyy", @class = "form-control", type = "date", id = "fromDate", autocomplete = "off" })
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 col-12">
+                                                <label>
+                                                    Đến ngày:@Html.TextBox("toDate", string.Format("{0:dd/MM/yyyy}", toDate), new { placeholder = "dd/mm/yyyy", @class = "form-control", type = "date", id = "toDate", autocomplete = "off" })
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 col-9">
+                                                <label>
+                                                    Tên CB: @Html.DropDownList("tencb", (IEnumerable<SelectListItem>)ViewBag.listCB, new { @class = "form-control" })
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 col-3">
+                                                <button class="btn btn-primary" id="btn_search" type="submit">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                       
+                                    </div>
+                                } 
+                                </div>
+                                <div class="col-xl-6 col-md-4 col-12">
+                                    <div id="example1_filter" class="dataTables_export">
+                                        @using (Html.BeginForm("ExportToExcel", "Report", FormMethod.Post, new { @class = "", role = "form" }))
+                                        {
+                                            <input type="submit" value="Xuất Excel" class="btn btn-primary" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="tbl_report" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Thời gian</th>
+                                                <th>Tên CB</th>
+                                                <th>Giá trị</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{int rowNo = 0;}
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>@(rowNo += 1)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.thoigian)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.tencb)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.giatri)</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Thời gian</th>
+                                                <th>Tên CB</th>
+                                                <th>Giá trị</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="~/Content/js/vendor.min.js"></script>
+    <script src="~/Content/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Content/js/app.min.js"></script>
+
+    <script>
+        $(function () {
+        $('#tbl_report').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "pageLength": 20
+        });
+        });
+    </script>
+}
+
+
+
