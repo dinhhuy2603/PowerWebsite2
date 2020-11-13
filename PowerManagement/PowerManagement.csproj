@@ -89,6 +89,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MQTTnet, Version=3.0.13.0, Culture=neutral, PublicKeyToken=b69712f52770c0a7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\WebSocketDemo\phan mem web ket noi socket\WebTest_MVC_socket\WebTest\WebTest\bin\MQTTnet.dll</HintPath>
+    </Reference>
+    <Reference Include="MQTTnet.Core">
+      <HintPath>..\..\..\WebSocketDemo\phan mem web ket noi socket\WebTest_MVC_socket\WebTest\WebTest\bin\MQTTnet.Core.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.10.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.10.9\lib\net452\MySql.Data.dll</HintPath>
       <Private>True</Private>
@@ -236,10 +243,12 @@
     <Compile Include="Controllers\AlarmController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alarm.cs" />
+    <Compile Include="Models\clsDungChung.cs" />
     <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\Hienthiweb.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -619,6 +628,7 @@
     <Content Include="Views\Report\Chart.cshtml" />
     <Content Include="Views\Alarm\Index.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Setting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

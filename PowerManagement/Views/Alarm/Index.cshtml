@@ -59,7 +59,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-xl-6 col-md-8">
-                                    @using (Html.BeginForm("Index", "Report", FormMethod.Get, new { @class = "", role = "form" }))
+                                    @using (Html.BeginForm("Index", "Alarm", FormMethod.Get, new { @class = "", role = "form" }))
                                     {
                                         <div class="row">
                                             <div class="col-md-3 col-12">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-xl-6 col-md-4 col-12">
                                     <div id="example1_filter" class="dataTables_export">
-                                        @using (Html.BeginForm("ExportToExcel", "Report", FormMethod.Post, new { @class = "", role = "form" }))
+                                        @using (Html.BeginForm("ExportToExcel", "Alarm", FormMethod.Post, new { @class = "", role = "form" }))
                                         {
                                             <input type="submit" value="Xuất Excel" class="btn btn-primary" />
                                         }

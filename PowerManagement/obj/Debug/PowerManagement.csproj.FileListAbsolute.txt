@@ -93,3 +93,5 @@ D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\PagedList.xml
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\PagedList.Mvc.xml
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\EPPlus.dll
 D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\EPPlus.xml
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\MQTTnet.Core.dll
+D:\ProjectPersional\A-Sang\PowerManagement\PowerManagement\bin\MQTTnet.dll

@@ -1,0 +1,464 @@
+﻿@{
+    ViewBag.Title = "Setting";
+}
+@section Styles
+{
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/Content/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+
+    <link href="~/Content/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="~/Content/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+
+    <!-- icons -->
+    <link href="~/Content/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+}
+
+<style>
+    .tabs {
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    #tab-button {
+        background-color: #386790;
+        display: block;
+        table-layout: fixed;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .input-group-sm input {
+        padding: .1rem .5rem !important;
+    }
+
+    .row.tag {
+        /*height: 35px;*/
+        padding-top: 8px;
+    }
+
+    #tab-button li {
+        display: table-cell;
+        width: 20%;
+        padding-top: 6px;
+        padding-left: .4em;
+        padding-right: .4em;
+    }
+
+    #tab-button li is-active {
+        background-color: #f8f9fc;
+    }
+
+    #tab-button li a {
+        display: block;
+        padding: .5em;
+        text-align: center;
+        color: #000;
+        text-decoration: none;
+        border-radius: 6px 6px 0 0;
+    }
+
+    #tab-button li:not(:first-child) a {
+        border-left: none;
+    }
+
+    #tab-button li a:hover,
+    #tab-button .is-active a {
+        border-bottom-color: transparent;
+        background: #fff;
+    }
+
+    .tab-contents {
+        padding: .5em 1em 1em;
+        border: 1px solid #ddd;
+    }
+
+
+    .tab-button-outer {
+        display: none;
+    }
+
+    .tab-contents {
+        margin-top: 20px;
+    }
+
+    .button-group {
+        width: 100%;
+    }
+
+    button {
+        height: inherit;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+    label{
+        font-weight: 700;
+    }
+</style>
+
+<style type="text/css" media="only screen and (max-width: 767px)">
+    .btn-sm2 {
+        margin-top: .5rem !important;
+    }
+</style>
+
+<style type="text/css" media="screen and (min-width: 300px)">
+    .tab-button-outer {
+        position: relative;
+        z-index: 2;
+        display: block;
+    }
+
+    .tab-contents {
+        position: relative;
+        top: -1px;
+        margin-top: 0;
+        /*height: 300px;*/
+    }
+
+    .d-md-inline {
+        display: inline !important;
+    }
+</style>
+
+
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        @*<div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active"><a href="">Setting</a></li>
+                            </ol>
+                        </div>*@
+                        <h4 class="page-title">Setting</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @*<div class="tab-button-outer col-xl-12">
+                    <ul id="tab-button" class="nav nav-tabs">
+                        <li><a href="#tab01">Tab 1</a></li>
+                        <li><a href="#tab02">Tab 2</a></li>
+                    </ul>
+                </div>*@
+                <div class="tab-content2 col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"> </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="tab01" class="tab-contents">
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="low_1">LOW 1</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="low_1">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="low_1">SET LOW 1</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="high_1">HIGH 1</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="high_1">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="high_1">SET HIGH 1</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="low_2">LOW 2</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="low_2">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="low_2">SET LOW 2</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="high_2">HIGH 2</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="high_2">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="high_2">SET HIGH 2</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="low_3">LOW 3</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="low_3">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="low_3">SET LOW 3</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="high_3">HIGH 3</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="high_3">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="high_3">SET HIGH 3</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="low_4">LOW 4</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="low_4">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="low_4">SET LOW 4</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="high_4">HIGH 4</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="high_4">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="high_4">SET HIGH 4</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="nd_sdtsms">PHONE NUMBER</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="nd_sdtsms">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="nd_sdtsms">SET PHONE NUMBER</button>
+                                    </div>
+                                </div>
+                                <div class="form-group form-row">
+                                    <div class="col-md-2 col-12">
+                                        <label class="col-form-label" for="nd_email">EMAIL</label>
+                                    </div>
+                                    <div class="col-md-5 col-12">
+                                        <input type="text" class="form-control" id="nd_email">
+                                    </div>
+                                    <div class="col-md-5 col-12 btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm2" name="nd_email">SET EMAIL</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div id="tab02" class="tab-contents">
+                    </div>*@
+
+
+                    <div class="row justify-content-start" style="padding-top:10px;">
+                        <div class="col-sm-8 col-8" style="padding-top:10px;text-align: left;">
+                            <div><span id="lblStatus"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="~/Content/js/vendor.min.js"></script>
+<script src="~/Content/js/app.min.js"></script>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
+<script>
+    var diffTab = "tab02";
+    var socket;
+    var IsVerify = false;
+    var oLogin = "";
+    var lstTags = [];
+    //Edit class javascript start
+    class PMObject {
+        constructor(Event, ClientID, Status, Message) {
+            this.Event = Event;
+            this.ClientID = ClientID;
+            this.Status = Status;
+            this.Message = Message;
+        }
+    }
+    class Login extends PMObject {
+        constructor(AuthToken, UserName, TagSubscription) {
+            super(AuthToken, AuthToken);
+            this.UserName = UserName;
+            this.TagSubscription = [];
+        }
+    }
+    class lstTag extends PMObject {
+        constructor(Tags) {
+            super(Tags, Tags);
+        }
+    }
+    class Tag {
+        constructor(tagname, tagvalueplc, tagupdate_status) {
+            this.tagname = tagname;
+            this.tagvalueplc = tagvalueplc;
+            this.tagupdate_status = tagupdate_status;
+        }
+    }
+    //Edit class javascript End
+    function Connect() {
+        if (typeof (WebSocket) !== 'undefined') {
+            socket = new WebSocket("ws://localhost:3000");
+        } else {
+            socket = new MozWebSocket("ws://localhost:3000");
+        }
+        //Hàm kết nối được SOcket => Gửi thông tin Login
+        socket.onopen = function (e) {
+            var Obje = new Login();
+            Obje.Event = "Login";
+            Obje.UserName = "client";
+            Obje.TagSubscription = ["low_1", "high_1", "low_2", "high_2", "low_3", "high_3", "low_4", "high_4", "nd_sdtsms", "nd_email"];
+            socket.send(JSON.stringify(Obje));
+            $("#lblStatus").text("");
+        }
+        socket.onclose = function (e) {
+            $('#tab01 input[type=text]').each(function (){
+                $(this).val('Bad');
+            });
+            setTimeout(function () {
+                console.log("WebSocketClient: reconnecting...");
+                $("#lblStatus").text("Mất kết nối: Đang kết nối đến máy chủ....");
+                Connect();
+            }, 1000);
+        }
+        socket.onmessage = function (msg) {
+            try {
+                if (msg.data.length > 0) {
+                    console.log(msg)
+                    var Obj = JSON.parse(msg.data);
+                    if (Obj) {
+                        if (Obj.Event == "Error" || Obj.Event == "Message") {
+                            $("#lblStatus").text(Obj.Message);
+                        }
+                        if (Obj.Event == "Login") {
+                            if (Obj.Status == "Success") {
+                                IsVerify = true;
+                                oLogin = Obj;
+                            }
+                        }
+                            //Hàm nhận Data => LoadTag lên view
+                        else if (Obj.Event == "SyncTag") {
+                            lstTags = Obj.Tags;
+                            LoadTag();
+                        }
+                            //Cập nhật Tag từ Server thành công => Load lên view
+                        else if (Obj.Event == "PMNVUpdateTag") {
+                            Obj.Tags.forEach(function (oTag) {
+                                var oLocalTag = lstTags.filter(function (st) { return st.tagname == oTag.tagname; });
+                                if (oLocalTag && oLocalTag.length > 0) {
+                                    oLocalTag[0].tagvalueplc = oTag.tagvalueplc;
+                                }
+                                $("#lblStatus").text("Cập nhật " + oLocalTag[0].tagname + " thành công!");
+                            })
+                            LoadTag();
+                        }
+                    }
+                }
+            }
+            catch (ex) {
+
+            }
+        };
+    }
+    //Hàm load Tag. Đọc ID theo tên Tag và Set Value
+    function LoadTag() {
+        lstTags.forEach(function (oTag) {
+            element = document.getElementById(oTag.tagname);
+            $(element).val(oTag.tagvalueplc);
+        });
+    }
+    //Hàm gửi Tag lên server để gọi cập nhật
+    function UpdateTag(tagname, tagvalueplc) {
+        var oLocalTag = lstTags.filter(function (st) { return st.tagname == tagname; });
+        if (oLocalTag && oLocalTag.length > 0) {
+            oLocalTag[0].tagvalueplc = tagvalueplc;
+            olstTag = new lstTag();
+            olstTag.Event = "UpdateTag";
+            olstTag.Tags = [];
+            olstTag.Tags.push(oLocalTag[0]);
+            socket.send(JSON.stringify(olstTag))
+            //$("#lblStatus").text("Cập nhật " + oLocalTag[0].tagname + " thành công!");
+        }
+    }
+
+    Connect();
+    //Xử lý Trang
+    $(function () {
+        //var $tabButtonItem = $('#tab-button li'),
+        //    $tabSelect = $('#tab-select'),
+        //    $tabContents = $('.tab-contents'),
+        //    activeClass = 'is-active';
+        //$("#btnTab").on('click', function (e) {
+        //    $("[href='#" + diffTab + "']").click();
+        //});
+        //Set sự kiện Click cho nút SET DATA TAG
+        $(".btn-sm2").on('click', function (event) {
+            //$(event.target).attr('name'): Name của Button user nhấn => vd: Tag1_100 (Tương ứng Tên Tag)
+            //$("#"+$(event.target).attr('name')).val(): Từ Name của Button lấy giá trị từ Input tương ứng với ID = Name Button
+            //=> Gọi Update
+            UpdateTag($(event.target).attr('name'), $("#"+$(event.target).attr('name')).val());
+        });
+        //$tabButtonItem.first().addClass(activeClass);
+        //$tabContents.not(':first').hide();
+
+        //$tabButtonItem.find('a').on('click', function (e) {
+        //    var target = $(this).attr('href');
+
+        //    $tabButtonItem.removeClass(activeClass);
+        //    $(this).parent().addClass(activeClass);
+        //    $tabSelect.val(target);
+        //    $tabContents.hide();
+        //    $(target).show();
+        //    e.preventDefault();
+        //});
+
+        //$tabSelect.on('change', function () {
+        //    var target = $(this).val(),
+        //        targetSelectNum = $(this).prop('selectedIndex');
+
+        //    $tabButtonItem.removeClass(activeClass);
+        //    $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
+        //    $tabContents.hide();
+        //    $(target).show();
+        //});
+    });
+</script>
+
+
+

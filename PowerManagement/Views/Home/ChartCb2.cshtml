@@ -186,7 +186,26 @@
         },
         legend: { enabled: true },
         credits: { enabled: false },
-        exporting: { enabled: true },
+        exporting: { 
+            buttons: {
+                contextButton: {
+                    menuItems: [
+                        "viewFullscreen",
+                        "printChart",
+                        "separator",
+                        "downloadPNG",
+                        "downloadJPEG",
+                        "downloadPDF",
+                        "downloadSVG",
+                        "separator",
+                        "downloadCSV",
+                        "downloadXLS",
+                        //"viewData",
+                        "openInCloud"
+                    ]
+                }
+            } 
+        },
         responsive: {
             rules: [{
                 condition: {
@@ -219,7 +238,15 @@
         },
         series:
         [
-          { name: "°C" , data: initData(), color: '#4e73df' }
+          { 
+              name: "Temperature °C" , 
+              data: initData(), 
+              color: '#4e73df',
+              tooltip: {
+                  pointFormat: '<span style="color:{point.color}">\u25CF</span> ' +
+                      'Temperature: <b>{point.y}°C</b><br/>'
+              },
+          }
         ]
     });
 
