@@ -248,7 +248,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alarm.cs" />
-    <Compile Include="Models\clsDungChung.cs" />
     <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\Hienthiweb.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
