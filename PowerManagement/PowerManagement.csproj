@@ -273,6 +273,7 @@
     <Content Include="Content\fonts\simple-Line-Icons4c82.svg" />
     <Content Include="Content\fonts\themify9f24.svg" />
     <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Content\images\background.jpg" />
     <Content Include="Content\images\brands\bitbucket.png" />
     <Content Include="Content\images\brands\dribbble.png" />
     <Content Include="Content\images\brands\dropbox.png" />
@@ -307,6 +308,7 @@
     <Content Include="Content\images\flags\spain.jpg" />
     <Content Include="Content\images\flags\us.jpg" />
     <Content Include="Content\images\login-bg.jpg" />
+    <Content Include="Content\images\login_logo.jpg" />
     <Content Include="Content\images\logo-2-rs.png" />
     <Content Include="Content\images\logo-2.png" />
     <Content Include="Content\images\logo-dark.png" />
@@ -349,6 +351,7 @@
     <Content Include="Content\images\users\user-7.jpg" />
     <Content Include="Content\images\users\user-8.jpg" />
     <Content Include="Content\images\users\user-9.jpg" />
+    <Content Include="Content\images\Webp.net-resizeimage.png" />
     <Content Include="Content\js\app.min.js" />
     <Content Include="Content\js\pages\animation.init.js" />
     <Content Include="Content\js\pages\apexcharts.init.js" />

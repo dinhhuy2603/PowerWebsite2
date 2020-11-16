@@ -16,15 +16,27 @@ span.select2-selection.select2-selection--single {
 }
 
 body.authentication-bg-pattern{
-    background: url(../images/login-bg.jpg);
+    background: url(../images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .btn-login {
-    background: #ef2f2f;
+    background: #cd0a0a;
+    border-color: #f43636;
+    border-radius: 40px;
+    padding: 0.5rem 0.5rem;
     color: #fff;
 }
+
+.form-login{
+    text-align: center;
+    margin-top: 10%;
+}
+.field-validation-error{
+    padding: 1.5rem;
+}
+
 #sidebar-menu>ul>li>a,
 .nav-second-level li a,
 .navbar-custom .topnav-menu>li,

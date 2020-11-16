@@ -41,12 +41,12 @@ namespace PowerManagement.Controllers
                     {
                         if(toDate < fromDate)
                         {
-                            alarms = db.alarm.Where(x => x.thoigian <= fromDate && x.thoigian >= toDate).OrderBy(p => p.thoigian).ToList();
+                            alarms = db.alarm.Where(x => x.thoigian <= fromDate && x.thoigian >= toDate).OrderByDescending(p => p.thoigian).ToList();
                         }
                         else
                         {
                             toDate = toDate.GetValueOrDefault(DateTime.Now.Date).Date.AddHours(23).AddMinutes(59);
-                            alarms = db.alarm.Where(x => x.thoigian <= toDate && x.thoigian >= fromDate).OrderBy(p => p.thoigian).ToList();
+                            alarms = db.alarm.Where(x => x.thoigian <= toDate && x.thoigian >= fromDate).OrderByDescending(p => p.thoigian).ToList();
                         }
                     }
                     else
@@ -56,19 +56,19 @@ namespace PowerManagement.Controllers
                             fromDate = DateTime.Now.Date;
                             if (!toDate.HasValue)
                             {
-                                alarms = db.alarm.OrderBy(p => p.thoigian).ToList();
+                                alarms = db.alarm.OrderByDescending(p => p.thoigian).Take(50).ToList();
                                 toDate = fromDate.GetValueOrDefault(DateTime.Now.Date).Date.AddDays(1);
                             }
                             else
                             {
                                 toDate = toDate.GetValueOrDefault(DateTime.Now.Date).Date.AddHours(23).AddMinutes(59);
-                                alarms = db.alarm.Where(x => x.thoigian <= toDate).OrderBy(p => p.thoigian).ToList();
+                                alarms = db.alarm.Where(x => x.thoigian <= toDate).OrderByDescending(p => p.thoigian).ToList();
                             }
                         }
                         else
                         {
                             if (!toDate.HasValue) {
-                                alarms = db.alarm.Where(x => x.thoigian >= fromDate).OrderBy(p => p.thoigian).ToList();
+                                alarms = db.alarm.Where(x => x.thoigian >= fromDate).OrderByDescending(p => p.thoigian).ToList();
                                 toDate = fromDate.GetValueOrDefault(DateTime.Now.Date).Date.AddDays(1);
                             }
                         }

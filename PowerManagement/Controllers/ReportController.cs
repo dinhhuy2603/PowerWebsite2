@@ -13,6 +13,8 @@ namespace PowerManagement.Controllers
     {
         DateTime? fromDate = DateTime.Now.Date;
         DateTime? toDate = DateTime.Now.Date.AddDays(1).AddTicks(-1);
+        DateTime today = DateTime.Today.AddDays(1).AddTicks(-1);
+        DateTime startMonth = DateTime.Today.AddDays(-30);
         // GET: Report
         public ActionResult Index(DateTime? fromDate, DateTime? toDate, int? tencb)
         {
@@ -39,12 +41,12 @@ namespace PowerManagement.Controllers
                     {
                         if (toDate < fromDate)
                         {
-                            reports = db.report.Where(x => x.thoigian <= fromDate && x.thoigian >= toDate).OrderBy(p => p.thoigian).ToList();
+                            reports = db.report.Where(x => x.thoigian <= fromDate && x.thoigian >= toDate).OrderByDescending(p => p.thoigian).ToList();
                         }
                         else
                         {
                             toDate = toDate.GetValueOrDefault(DateTime.Now.Date).Date.AddHours(23).AddMinutes(59);
-                            reports = db.report.Where(x => x.thoigian <= toDate && x.thoigian >= fromDate).OrderBy(p => p.thoigian).ToList();
+                            reports = db.report.Where(x => x.thoigian <= toDate && x.thoigian >= fromDate).OrderByDescending(p => p.thoigian).ToList();
                         }
                     }
                     else
@@ -54,20 +56,20 @@ namespace PowerManagement.Controllers
                             fromDate = DateTime.Now.Date;
                             if (!toDate.HasValue)
                             {
-                                reports = db.report.OrderBy(p => p.thoigian).ToList();
+                                reports = db.report.OrderByDescending(p => p.thoigian).Take(50).ToList();
                                 toDate = fromDate.GetValueOrDefault(DateTime.Now.Date).Date.AddDays(1);
                             }
                             else
                             {
                                 toDate = toDate.GetValueOrDefault(DateTime.Now.Date).Date.AddHours(23).AddMinutes(59);
-                                reports = db.report.Where(x => x.thoigian <= toDate).OrderBy(p => p.thoigian).ToList();
+                                reports = db.report.Where(x => x.thoigian <= toDate).OrderByDescending(p => p.thoigian).ToList();
                             }
                         }
                         else
                         {
                             if (!toDate.HasValue)
                             {
-                                reports = db.report.Where(x => x.thoigian >= fromDate).OrderBy(p => p.thoigian).ToList();
+                                reports = db.report.Where(x => x.thoigian >= fromDate).OrderByDescending(p => p.thoigian).ToList();
                                 toDate = fromDate.GetValueOrDefault(DateTime.Now.Date).Date.AddDays(1);
                             }
                         }
@@ -118,9 +120,9 @@ namespace PowerManagement.Controllers
         {
             using (DBModel db = new DBModel())
             {
-                var data1 = db.report.Where(p => p.tencb.Equals("Tu 1")).OrderBy(p => p.thoigian).ToList();
-                var data2 = db.report.Where(i => i.tencb.Equals("Tu 2")).OrderBy(i => i.thoigian).ToList();
-                var data3 = db.report.Where(r => r.tencb.Equals("Tu 3")).OrderBy(r => r.thoigian).ToList();
+                var data1 = db.report.Where(p => p.thoigian <= today && p.thoigian >= startMonth).Where(p => p.tencb.Equals("Tu 1")).OrderBy(p => p.thoigian).ToList();
+                var data2 = db.report.Where(p => p.thoigian <= today && p.thoigian >= startMonth).Where(i => i.tencb.Equals("Tu 2")).OrderBy(i => i.thoigian).ToList();
+                var data3 = db.report.Where(p => p.thoigian <= today && p.thoigian >= startMonth).Where(r => r.tencb.Equals("Tu 3")).OrderBy(r => r.thoigian).ToList();
                 var data = new List<object>();
                 data.Add(data1);
                 data.Add(data2);

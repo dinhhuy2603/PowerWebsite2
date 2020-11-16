@@ -24,6 +24,17 @@
     <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
 
 </head>
+<style>
+    .card {
+        background-color: transparent !important;
+    }
+    .form-group .form-control {
+        border-radius: 40px;
+        border: none;
+        padding: 1.5rem 1.5rem;
+        /*margin-top: 1.5rem;*/
+    }
+</style>
 
 <body class="loading authentication-bg-pattern">
 
@@ -39,11 +50,12 @@
                                 <div class="auth-logo">
                                     <a href="#" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="~/Content/images/logo.png" alt="" height="30">
+                                            @*<img src="~/Content/images/logo.png" >*@
+                                            <img src="~/Content/images/login_logo.jpg" alt="" height="100"/>
                                         </span>
                                     </a>
                                 </div>
-                                <p class="text-muted mb-4 mt-3 font-16">Enter your email address and password to access admin panel.</p>
+                                <p class="text-muted mb-4 mt-3 font-16">Enter your username and password to access admin panel.</p>
                             </div>
 
                             @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "user", role = "form" }))
@@ -58,14 +70,14 @@
                                 }
 
                                 <div class="form-group mb-3">
-                                    <label for="emailaddress" class="font-16">Username</label>
+                                    <label for="emailaddress" class="font-16"></label>
                                     @*<input class="form-control" id="emailaddress" required="" placeholder="Enter your Username">*@
                                     @Html.TextBoxFor(m => m.user, new { placeholder = "Enter your Username", @class = "form-control", autocomplete = "off" })
                                     @Html.ValidationMessageFor(m => m.user, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="password" class="font-16">Password</label>
+                                    <label for="password" class="font-16"></label>
                                     @Html.PasswordFor(m => m.pass, new { placeholder = "Enter your password", @class = "form-control", autocomplete = "off" })
                                     @Html.ValidationMessageFor(m => m.pass, "", new { @class = "text-danger" })
                                     @*<div class="input-group input-group-merge">
@@ -78,7 +90,7 @@
                                         </div>*@
                                 </div>
 
-                                <div class="form-group mb-0 text-center">
+                                <div class="form-group mb-0 text-center form-login">
                                     <button class="btn btn-login btn-block btn-lg" type="submit"> Log In </button>
                                 </div>
 
