@@ -1,31 +1,235 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@section Styles
+{
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <!-- App css -->
+    <link href="~/Content/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="~/Content/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <!-- icons -->
+    <link href="~/Content/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+}
+<style>
+    .modal-header {
+        border-bottom: 1px solid #e6e6e6;
+    }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    .text-total span:first-child {
+        font-size: 56px;
+    }
+
+    /*.text-total span:last-child {
+        font-size: 30px;
+    }*/
+
+    .bg-white {
+        background-color: #FFFFFF !important;
+    }
+
+   
+
+    #cb4_hienthi {
+        font-size: 69px;
+        font-family: system-ui;
+        /*color: #00fff3;*/
+        color: #005aff;
+    }
+</style>
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<div class="content-page pd-0-mobile">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid pd-0-mobile">
+            <div class="row mt-5">
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB1</h5>
+                        <div class="card-body bg-white border-top" id="div1">
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="cb1_hienthi">@ViewBag.hienthi.cb1 &deg;C</span>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb1_status">@ViewBag.trangthai.status_cb1</span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB2</h5>
+                        <div class="card-body bg-white border-top">
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="cb2_hienthi">@ViewBag.hienthi.cb2 &deg;C</span>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb2_status">@ViewBag.trangthai.status_cb2</span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB3</h5>
+                        <div class="card-body bg-white border-top">
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="cb3_hienthi">@ViewBag.hienthi.cb3 &deg;C</span>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb3_status">@ViewBag.trangthai.status_cb3</span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+                <!-- Row 2 START-->
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">CB4</h5>
+                        <div class="card-body border-top" id="div4" >
+                            <div class="flex-wrap d-flex align-items-center justify-content-center" style="height: 100%">
+                                <span class="text-total" id="cb4_hienthi">
+                                   GOOD
+                                </span>
+                            </div>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+
+                <div class="col-xl-4 col-md-4">
+                    <div class="card bg-card">
+                        <h5 class="card-header text-center font-20" style="background-color: #4181CB; color: #FFFFFF">SNACK FACTORY ENERGY</h5>
+                        <div class="card-body bg-white">
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/nhietdo1.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="cb1_hienthi2">@ViewBag.hienthi.cb1 &deg;C</span>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb1_status2">@ViewBag.trangthai.status_cb1</span></p>
+                        </div> <!-- end card-body -->
+                        <div class="card-body bg-white border-top">
+                            <div class="flex-wrap d-flex align-items-center justify-content-center">
+                                <img src="~/Content/images/doam.jpg" height="80" class="mr-3" alt="">
+                                <div class="text-total">
+                                    <span id="cb2_hienthi2">@ViewBag.hienthi.cb2 %</span>
+                                </div>
+                            </div>
+                            <p class="text-center font-16 mt-3">Status: <span id="cb2_status2">@ViewBag.trangthai.status_cb2</span></p>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+
+            </div>
+        </div> <!-- container -->
+
+    </div> <!-- content -->
 </div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6" style="text-align: right">
+                <span class="font-16"><strong id="getTime">@DateTime.Now.DayOfWeek, @DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</strong></span>
+            </div>
+        </div>
+    </div>
+</footer>
+@*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="~/Content/js/vendor.min.js"></script>
+<script src="~/Content/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
+<script src="~/Content/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="~/Content/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+
+<!-- Dashboard 2 init -->
+<script src="~/Content/js/pages/dashboard-2.init.js"></script>
+<!-- App js-->
+<script src="~/Content/js/app.min.js"></script>
+
+<script type="text/javascript">
+    var myVar;
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    $(document).ready(function () {
+        clearInterval(myVar);
+        myVar = setInterval(function () {
+            data_hienthi = getIndexData();
+            if (data_hienthi) {
+                $('#cb1_hienthi').html(addCommas(data_hienthi[0].cb1) + " &deg;C");
+                $('#cb2_hienthi').html(addCommas(data_hienthi[0].cb2) + " &deg;C");
+                $('#cb3_hienthi').html(addCommas(data_hienthi[0].cb3) + " &deg;C");
+                $('#cb4_hienthi').html(addCommas(data_hienthi[0].cb4));
+                $('#cb1_status').html(data_hienthi[1].status_cb1);
+                $('#cb2_status').html(data_hienthi[1].status_cb2);
+                $('#cb3_status').html(data_hienthi[1].status_cb3);
+                $('#cb1_hienthi2').html(addCommas(data_hienthi[0].cb1) + " &deg;C");
+                $('#cb2_hienthi2').html(addCommas(data_hienthi[0].cb2) + " &deg;C");
+                $('#cb1_status2').html(data_hienthi[1].status_cb1);
+                $('#cb2_status2').html(data_hienthi[1].status_cb2);
+                //$('#cb4_status').html(data_hienthi[1].status_cb4);
+
+                if (data_hienthi[0].cb4 == "GOOD") {
+                    $("#div4").css("backgroundColor", "")
+                    $("#div4").css("background-image", "linear-gradient(#06c50e, #1dc724)")
+                }
+                else {
+                    $("#div4").css("background-image", "")
+                    $("#div4").css("backgroundColor", "red")
+                }
+            }
+
+            var currentdate = new Date();
+            var today = weekday[currentdate.getDay()];
+            var datetime = today + ", "
+                + currentdate.getDate() + "/"
+                + (currentdate.getMonth() + 1) + "/"
+                + currentdate.getFullYear() + " "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            $("#getTime").html(datetime)
+        }, 1000);
+
+        var height = $("#div1").innerHeight();
+        $("#div4").css('height', height + "px");
+    });
+
+    function getIndexData() {
+        var hienthi_data = {};
+        $.ajax({
+            url: '/Home/GetHienThiOverview/',
+            type: 'get',
+            async: false,
+            success: function (data) {
+                hienthi_data = data;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                var errorMsg = 'Ajax request failed: ' + xhr.responseText;
+                $('#content').html(errorMsg);
+            }
+        });
+        return hienthi_data;
+    }
+
+    
+</script>
