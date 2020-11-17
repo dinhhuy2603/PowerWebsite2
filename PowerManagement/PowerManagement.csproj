@@ -263,6 +263,7 @@
     <Content Include="Content\css\bootstrap-dark.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\common.css" />
+    <Content Include="Content\css\fonts.css" />
     <Content Include="Content\css\icons.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\dripicons-v2.svg" />
@@ -353,6 +354,14 @@
     <Content Include="Content\images\users\user-9.jpg" />
     <Content Include="Content\images\Webp.net-resizeimage.png" />
     <Content Include="Content\js\app.min.js" />
+    <Content Include="Content\js\highcharts\accessibility.js" />
+    <Content Include="Content\js\highcharts\data.js" />
+    <Content Include="Content\js\highcharts\export-data.js" />
+    <Content Include="Content\js\highcharts\export-data.src.js" />
+    <Content Include="Content\js\highcharts\exporting.js" />
+    <Content Include="Content\js\highcharts\highcharts.js" />
+    <Content Include="Content\js\highcharts\highstock.js" />
+    <Content Include="Content\js\jquery-1.11.3.min.js" />
     <Content Include="Content\js\pages\animation.init.js" />
     <Content Include="Content\js\pages\apexcharts.init.js" />
     <Content Include="Content\js\pages\bootstrap-tables.init.js" />

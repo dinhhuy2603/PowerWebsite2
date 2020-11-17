@@ -100,38 +100,34 @@
                                     <table id="tbl_alarm" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Thời gian</th>
                                                 <th>Tên CB</th>
                                                 <th>Giá trị thấp</th>
                                                 <th>Giá trị hiện tại</th>
                                                 <th>Giá trị cao</th>
+                                                <th>Thời gian</th>
                                                 <th>Cảnh báo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @{int rowNo = 0;}
                                             @foreach (var item in Model)
                                             {
                                                 <tr>
-                                                    <td>@(rowNo += 1)</td>
-                                                    <td>@Html.DisplayFor(modelItem => item.thoigian)</td>
                                                     <td>@Html.DisplayFor(modelItem => item.tencb)</td>
                                                     <td>@Html.DisplayFor(modelItem => item.giatrithap)</td>
                                                     <td>@Html.DisplayFor(modelItem => item.giatrihientai)</td>
                                                     <td>@Html.DisplayFor(modelItem => item.giatricao)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.thoigian)</td>
                                                     <td>@Html.DisplayFor(modelItem => item.canhbao)</td>
                                                 </tr>
                                             }
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Thời gian</th>
                                                 <th>Tên CB</th>
                                                 <th>Giá trị thấp</th>
                                                 <th>Giá trị hiện tại</th>
                                                 <th>Giá trị cao</th>
+                                                <th>Thời gian</th>
                                                 <th>Cảnh báo</th>
                                             </tr>
                                         </tfoot>
@@ -150,7 +146,6 @@
 
 @section Scripts
 {
-    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="~/Content/js/vendor.min.js"></script>
     <script src="~/Content/libs/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>

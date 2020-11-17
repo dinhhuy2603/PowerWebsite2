@@ -13,8 +13,7 @@ namespace PowerManagement.Controllers
     {
         DateTime? fromDate = DateTime.Now.Date;
         DateTime? toDate = DateTime.Now.Date.AddDays(1).AddTicks(-1);
-        DateTime today = DateTime.Today.AddDays(1).AddTicks(-1);
-        DateTime startMonth = DateTime.Today.AddDays(-30);
+        DateTime today = DateTime.Today;
         // GET: Report
         public ActionResult Index(DateTime? fromDate, DateTime? toDate, int? tencb)
         {
@@ -120,9 +119,9 @@ namespace PowerManagement.Controllers
         {
             using (DBModel db = new DBModel())
             {
-                var data1 = db.report.Where(p => p.thoigian <= today && p.thoigian >= startMonth).Where(p => p.tencb.Equals("Tu 1")).OrderBy(p => p.thoigian).ToList();
-                var data2 = db.report.Where(p => p.thoigian <= today && p.thoigian >= startMonth).Where(i => i.tencb.Equals("Tu 2")).OrderBy(i => i.thoigian).ToList();
-                var data3 = db.report.Where(p => p.thoigian <= today && p.thoigian >= startMonth).Where(r => r.tencb.Equals("Tu 3")).OrderBy(r => r.thoigian).ToList();
+                var data1 = db.report.Where(p => (p.thoigian.Month >= today.Month && p.thoigian.Year == today.Year - 1) || (p.thoigian.Month <= today.Month && p.thoigian.Year == today.Year)).Where(p => p.tencb.Equals("Tu 1")).OrderBy(p => p.thoigian).ToList();
+                var data2 = db.report.Where(p => (p.thoigian.Month >= today.Month && p.thoigian.Year == today.Year - 1) || (p.thoigian.Month <= today.Month && p.thoigian.Year == today.Year)).Where(i => i.tencb.Equals("Tu 2")).OrderBy(i => i.thoigian).ToList();
+                var data3 = db.report.Where(p => (p.thoigian.Month >= today.Month && p.thoigian.Year == today.Year - 1) || (p.thoigian.Month <= today.Month && p.thoigian.Year == today.Year)).Where(r => r.tencb.Equals("Tu 3")).OrderBy(r => r.thoigian).ToList();
                 var data = new List<object>();
                 data.Add(data1);
                 data.Add(data2);

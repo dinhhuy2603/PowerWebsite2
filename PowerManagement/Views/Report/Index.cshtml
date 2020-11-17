@@ -101,30 +101,26 @@
                                     <table id="tbl_report" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Thời gian</th>
                                                 <th>Tên CB</th>
                                                 <th>Giá trị</th>
+                                                <th>Thời gian</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @{int rowNo = 0;}
                                             @foreach (var item in Model)
                                             {
                                                 <tr>
-                                                    <td>@(rowNo += 1)</td>
-                                                    <td>@Html.DisplayFor(modelItem => item.thoigian)</td>
                                                     <td>@Html.DisplayFor(modelItem => item.tencb)</td>
                                                     <td>@Html.DisplayFor(modelItem => item.giatri)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.thoigian)</td>
                                                 </tr>
                                             }
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Thời gian</th>
                                                 <th>Tên CB</th>
                                                 <th>Giá trị</th>
+                                                <th>Thời gian</th>
                                             </tr>
                                         </tfoot>
                                     </table>
